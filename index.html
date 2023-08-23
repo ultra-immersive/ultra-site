@@ -1,1 +1,137 @@
-<!doctype html><html lang="en" class="no-js"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interactive Particles | Codrops</title><meta name="description" content="Demo of a tutorial on how to draw a large number of particles with Three.js and make them interactive."/><meta name="keywords" content="three.js, tutorial, particles, interactive, javascript, webgl"/><meta name="author" content="Bruno Imbrizi for Codrops"/><link rel="shortcut icon" href="favicon.ico"><link rel="stylesheet" href="css/base.css"/><link rel="stylesheet" href="css/demo1.css"/><script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script><script defer="defer" src="scripts/index.0d02f0bc26af9287537a.js"></script></head><body class="demo-1"><main><div class="frame"><div class="frame__title-wrap"><h1 class="frame__title">Interactive Particles</h1></div><a class="frame__github" href="https://github.com/brunoimbrizi/interactive-particles">GitHub</a><div class="frame__links"><a href="https://tympanus.net/Development/AnimatedMeshLines/">Previous Demo</a> <a href="https://tympanus.net/codrops/?p=37503">Article</a></div></div></main><div class="container"></div><script type="text/javascript" src="scripts/index.0d02f0bc26af9287537a.js"></script></body></html>
+<!doctype html>
+<html lang="en" class="no-js">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ultra</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("Please view this demo in a modern browser that supports CSS Variables.");</script>
+
+    <link rel="stylesheet" href="./custom.css" type="text/css" />
+
+    <script>
+
+        var data_mobile_breack = 850;
+        var dataconfigitems = [
+            {
+                "element": ".animazione_item",
+                "tipo" : "full",
+                "imagine" : ['./1GREY.png'],
+                "raporto": 0,
+                "in_show" : false  			}
+
+        ];
+
+
+    </script>
+    <style>
+        .animatein{
+            display: none;
+            position: relative;
+            top: 0px;
+            left: 0px;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-color: var(--color-bg);
+        }
+    </style>
+
+</head>
+<body class="pagecontent-11 " id="body">
+<div class="animatein"></div>
+<span class="loader" id="loader"></span>
+<!-- <header class="header" id="header">
+      <a href="https://ultra.site/" class="logo">
+          <img src="https://ultra.mab21.com/uploads/2022/04/LOGO-ULTRA.png" alt="">
+      </a>
+      <div class="bloco">
+          <div class="burger" id="burger">
+              <img src="https://ultra.site/template/assets/image/menu-h.png" alt="">
+          </div>
+          <ul class="menu">
+              <li class=""><a href="https://ultra.mab21.com/en/why-we-are-here">Why we are here</a></li>
+              <li class=""><a href="https://ultra.mab21.com/en/how-we-work">How we work</a></li>
+              <li class=""><a href="https://ultra.mab21.com/en/what-we-do">What we do</a></li>
+              <li class=""><a href="https://ultra.mab21.com/en/expertise">Expertise</a></li>
+              <li class=""><a href="https://ultra.mab21.com/en/founders">Founders</a></li>
+              <li class=""><a href="https://ultra.mab21.com/en/contact">Contact</a></li>
+              <li class="sel-it"><a href="" class="l">IT</a></li>
+              <li class="sel-en"><a href="">EN</a></li>
+
+
+          </ul>
+          <ul class="lang">
+
+          </ul>
+      </div>
+  </header> -->
+<!-- <div class="popup-menu">
+    <div class="close" id="close-popup-menu">
+        <span></span>
+        <span></span>
+    </div>
+    <ul class="nav-links-popup">
+        <li class=""><a href="https://ultra.mab21.com/en/why-we-are-here">Why we are here</a></li>
+        <li class=""><a href="https://ultra.mab21.com/en/how-we-work">How we work</a></li>
+        <li class=""><a href="https://ultra.mab21.com/en/what-we-do">What we do</a></li>
+        <li class=""><a href="https://ultra.mab21.com/en/expertise">Expertise</a></li>
+        <li class=""><a href="https://ultra.mab21.com/en/founders">Founders</a></li>
+        <li class=""><a href="https://ultra.mab21.com/en/contact">Contact</a></li>
+        <li class="sel-it"><a href="">IT</a> / <a href="">EN</a></li>
+
+    </ul>
+</div> -->
+
+<div class="animazione_ animazione_item"     data-raporto='{"500":{"alfa":"60"},"1360":{"alfa":"40"},"5000":{"alfa":"40"}}' ></div>
+<div class="pagecontent">
+
+    <div class="content_page_s transition-fade in_home page-11" id="swup">
+
+        <div pmgident-id="497" pmgident-box="logoultra" class="pre_box" >
+
+
+            <!-- <div class="box-logoultra">
+              <div class="buttonnext_box">
+                <a href="/en/why-we-are-here/" class="buttonnext">ENTRA NEL SITO</a>
+              </div>
+            </div> -->
+
+            <div class="contatti_home">
+                <div class="contatti_home_in">
+                    <div class="contatti_home__left">
+                        <div class="contatti_home__testo testo_logo">Ultra s.r.l.</div>
+                        <div class="contatti_home__testo">Via Tortona 26, Milano</div>
+                    </div>
+                    <div class="contatti_home__right">
+                        <div class="contatti_home__testo">Contact: <a href="mailto:info@ultra.site">info@ultra.site</a></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div></div>
+
+</div>
+
+
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lazyloadjs/3.2.2/lazyload.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/letterizejs@2.0.1/lib/letterize.min.js"></script>
+<script type="text/javascript" src="./SplitText.min.js"></script>
+
+
+<script type="text/javascript" src="./index.d7a83ef4e1047f5e353c.js"></script>
+<script type="text/javascript" src="./custom.js"></script>
+<script type="text/javascript" >
+
+</script>
+</body>
+</html>
